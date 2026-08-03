@@ -1,6 +1,6 @@
 # automatic_pull
 # Клонировать отсутствующие проекты и обновить все
-python3 ~/update_projects.py
+./run.sh --no-rebuild
 
 # Обновить только один конкретный проект
 python3 ~/update_projects.py --project Eco_back_PONOinput
@@ -13,3 +13,6 @@ python3 ~/update_projects.py --down --force-recreate
 
 # Только клонировать отсутствующие проекты, не обновлять существующие
 python3 ~/update_projects.py --no-pull --no-rebuild
+
+
+
