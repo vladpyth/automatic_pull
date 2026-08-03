@@ -1,18 +1,17 @@
-# automatic_pull
-# Клонировать отсутствующие проекты и обновить все
-./run.sh --no-rebuild
-
-# Обновить только один конкретный проект
-python3 ~/update_projects.py --project Eco_back_PONOinput
-
-# Обновить с принудительной пересборкой без кэша
-python3 ~/update_projects.py --force-recreate --no-cache
-
-# Остановить контейнеры, обновить код, пересобрать и запустить
-python3 ~/update_projects.py --down --force-recreate
-
-# Только клонировать отсутствующие проекты, не обновлять существующие
-python3 ~/update_projects.py --no-pull --no-rebuild
-
-
-
+Команда	Описание
+./run.sh	Обновить все проекты (клон+пулл+сборка+запуск)
+./run.sh --project Eco_back_PONOinput	Обновить только один проект
+./run.sh --help	Показать справку по всем командам
+./run.sh --save-config config.json	Сохранить конфигурацию в файл
+./run.sh --config config.json	Использовать конфигурацию из файла
+Флаги управления
+Флаг	Описание	Пример
+--no-pull	Не делать git pull	./run.sh --no-pull
+--no-rebuild	Не пересобирать образы	./run.sh --no-rebuild
+--no-up	Только git pull, без запуска	./run.sh --no-up
+--no-cache	Сборка без кэша	./run.sh --no-cache
+--no-clone	Не клонировать новые проекты	./run.sh --no-clone
+--force-recreate	Принудительно пересоздать контейнеры	./run.sh --force-recreate
+--down	Остановить контейнеры перед обновлением	./run.sh --down
+--remove-volumes	Удалить тома при остановке (только с --down)	./run.sh --down --remove-volumes
+--add-repo	Добавить новый репозиторий	./run.sh --add-repo "Имя" "URL"
